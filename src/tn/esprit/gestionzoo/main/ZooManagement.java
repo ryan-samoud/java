@@ -36,7 +36,7 @@ public class ZooManagement {
         myZoo.addAnimal(lion);
         myZoo.addAnimal(dog);
         myZoo.addAnimal(dog2);
-        myZoo.displayAnimals();
+
 
 
         myZoo.setName("Belvedere Park");
@@ -50,6 +50,8 @@ public class ZooManagement {
         tiger.setMammal(true);
         tiger.setNbrLegs(4);
         System.out.println(tiger);
+        myZoo.displayAnimals();
+
         Aquatic aqua=new Aquatic();
         Penguin happy =new Penguin();
         happy.setName("happyfeet");
@@ -58,18 +60,20 @@ public class ZooManagement {
         happy.setMammal(false);
         happy.setHabitat("El shammel, ");
         happy.setSwimmingDepth(69);
-        System.out.println(happy);
         Dolphin sql =new Dolphin();
         sql.setName("sql");
         sql.setAge(6);
-        sql.setFamily("sql");
+        sql.setFamily("dolphin");
         sql.setMammal(true);
         sql.setHabitat("b7ar, ");
         sql.setSwimmingSpeed(45);
-        System.out.println(sql);
         aqua.swim();
         sql.swim();
         happy.swim(); //takes the function of superclass (penguin btw)
+        myZoo.addAquaticAnimal(happy);
+        myZoo.addAquaticAnimal(sql);
+        myZoo.displayAquaticAnimals();
+        myZoo.displayNumberOfAquaticByType();
     }
 
 }
