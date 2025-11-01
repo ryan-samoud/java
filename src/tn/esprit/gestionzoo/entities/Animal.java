@@ -41,7 +41,7 @@ public class Animal {
 
     public void setAge(int age) {
         if (age < 0)
-            System.out.println("The age must a positive number");
+            System.out.println("The age must be a positive number");
         else
             this.age = age;
     }

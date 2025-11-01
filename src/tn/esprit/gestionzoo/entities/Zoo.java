@@ -2,7 +2,7 @@ package tn.esprit.gestionzoo.entities;
 
 public class Zoo {
 
-    public static final int NUMBER_OF_CAGES = 25;
+    public static final int NUMBER_OF_CAGES = 3;
     private Animal[] animals;
     private String name, city;
     private int nbrAnimals;
@@ -79,15 +79,43 @@ public class Zoo {
     void displayZoo() {
         System.out.println("Name: " + name + ", City: " + city + ", N° Cages: " + NUMBER_OF_CAGES + " N° animals: " + nbrAnimals);
     }
+    public class ZooFullException extends Exception {
+        public ZooFullException() {
+            super();
+        }
+        public ZooFullException(String message) {
+            super(message);
+        }
+    }
+    public class AnimalExistsException extends Exception {
+        public AnimalExistsException() {
+            super();
+        }
+        public AnimalExistsException(String message) {
+            super(message);
+        }
+    }
+    public class InvalidAgeException extends Exception {
+        public InvalidAgeException() {
+            super();
+        }
+        public InvalidAgeException(String message) {
+            super(message);
+        }
+    }
+    public void addAnimal(Animal animal) throws ZooFullException , AnimalExistsException , InvalidAgeException{
+        if (animal.getAge() < 0) {
+            throw new InvalidAgeException("Âge d’animal invalide : l’âge ne peut pas être négatif.");
+        }
+        if (searchAnimal(animal) != -1) {
+            throw new AnimalExistsException("Animal " + animal.getName() + " already exists");
+        }
+        if (isZooFull()) {
+            throw new ZooFullException(animal.getName() + " because zoo is full");
+        }
 
-    public boolean addAnimal(Animal animal) {
-        if (searchAnimal(animal) != -1)
-            return false;
-        if (isZooFull())
-            return false;
         animals[nbrAnimals] = animal;
         nbrAnimals++;
-        return true;
     }
 
     public void addAquaticAnimal(Aquatic aquatic) {
