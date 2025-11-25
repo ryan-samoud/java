@@ -54,4 +54,5 @@ public class Employe {
     public String toString() {
         return "nom:" +  nom + ", prenom:" + prenom + ", id:" + id + ", grade:" + grade + ", nomDepartement:" + nomDepartement;
     }
+
 }
