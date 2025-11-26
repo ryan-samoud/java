@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 public class AffectationHashMap {
     Map<Employe, Departement> affectations = new HashMap<>();
     public void ajouterEmployeDepartement(Employe e, Departement d)  {
@@ -44,5 +45,10 @@ public class AffectationHashMap {
     public boolean rechercherDepartement(Departement d) {
         return affectations.containsValue(d);
     }
+    public TreeMap<Employe, Departement> trierMap(){
+        TreeMap<Employe, Departement> mapTriee = new TreeMap<>();
+        mapTriee.putAll(affectations);
 
+        return mapTriee;
+    }
 }

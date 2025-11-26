@@ -1,11 +1,14 @@
+import java.util.Map;
+import java.util.TreeMap;
+
 public class Main {
     public static void main(String[] args) {
         SocieteArrayList societe=new SocieteArrayList();
         DepartementHashSet departements=new DepartementHashSet();
         AffectationHashMap affectations = new AffectationHashMap();
         Employe meme=new Employe(1, "big", "chungus", "khedma", 10);
-        Employe idc=new Employe(2, "who", "cares", "khedma", 5);
-        Employe ryan=new Employe(3, "Samoud", "Ryan", "Esprit", 1);
+        Employe idc=new Employe(3, "who", "cares", "khedma", 5);
+        Employe ryan=new Employe(2, "Samoud", "Ryan", "Esprit", 1);
 
         Departement khedma = new Departement(1, "khedma", 2);
         Departement Esprit = new Departement(2, "Esprit", 1);
@@ -47,5 +50,11 @@ public class Main {
         affectations.afficherEmployes();
         System.out.println("hashmap(departement)");
         affectations.afficherDepartements();
+        TreeMap<Employe, Departement> sorted = affectations.trierMap();
+
+        System.out.println("Map triée par id :");
+        for (Map.Entry<Employe, Departement> entry : sorted.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue().getNomDepartement());
+        }
     }
 }
